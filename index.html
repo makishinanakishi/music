@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>在线音乐播放器</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <!-- 专辑封面区域 -->
         <div class="album-section">
             <div class="album-cover-wrapper">
-                <img src="/placeholder.svg?height=300&width=300" alt="专辑封面" class="album-cover" id="albumCover">
+                <!-- 使用默认占位图 -->
+                <img src="./public/night-music-album-cover.png" alt="专辑封面" class="album-cover" id="albumCover">
             </div>
             <div class="song-info">
                 <h2 class="song-title" id="songTitle">未播放</h2>
@@ -57,26 +60,27 @@
             <div class="controls-section">
                 <button class="control-btn" id="btnPrevious" title="上一首">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                        <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
                     </svg>
                 </button>
                 <button class="control-btn btn-play-pause" id="btnPlayPause" title="播放/暂停">
                     <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
+                        <path d="M8 5v14l11-7z" />
                     </svg>
                     <svg class="pause-icon hidden" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+                        <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
                     </svg>
                 </button>
                 <button class="control-btn" id="btnNext" title="下一首">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16 18h2V6h-2zm-11-7l8.5-6v12z"/>
+                        <path d="M16 18h2V6h-2zm-11-7l8.5-6v12z" />
                     </svg>
                 </button>
 
                 <div class="volume-control">
                     <svg class="volume-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                        <path
+                            d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
                     </svg>
                     <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
                 </div>
@@ -89,4 +93,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
