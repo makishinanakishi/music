@@ -42,7 +42,7 @@ const songs = [
         artist: "周杰伦",
         duration: "3:58",
         cover: "./public/chinese-porcelain-music-album-cover.jpg",
-        audioSrc: "./music/刘芳 - 青花瓷.mp3c",
+        audioSrc: "./music/刘芳 - 青花瓷.mp3",
         lyricsFile: "./music/青花瓷.lrc",
     },
 ];
@@ -105,6 +105,11 @@ function loadSong(index) {
     const song = songs[index];
     currentSongIndex = index;
 
+    console.log("[v0] 正在加载歌曲:", song.title, "索引:", index);
+    console.log("[v0] 音频路径:", song.audioSrc);
+    console.log("[v0] 歌词路径:", song.lyricsFile);
+    console.log("[v0] 封面路径:", song.cover);
+
     // 更新UI
     albumCover.src = song.cover;
     songTitle.textContent = song.title;
@@ -112,6 +117,16 @@ function loadSong(index) {
 
     // 加载音频
     audioPlayer.src = song.audioSrc;
+
+    audioPlayer.onerror = () => {
+        console.error("[v0] 音频加载失败:", song.audioSrc);
+        console.error("[v0] 错误代码:", audioPlayer.error?.code);
+        console.error("[v0] 错误信息:", audioPlayer.error?.message);
+    };
+
+    audioPlayer.onloadeddata = () => {
+        console.log("[v0] 音频加载成功:", song.title);
+    };
 
     // 从文件加载歌词
     loadLyricsFromFile(song.lyricsFile);
@@ -376,6 +391,7 @@ function setupEventListeners() {
         const playlistItem = e.target.closest(".playlist-item");
         if (playlistItem) {
             const index = Number.parseInt(playlistItem.dataset.index);
+            console.log("[v0] 点击播放列表项，索引:", index);
             loadSong(index);
             play();
         }
