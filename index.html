@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线音乐播放器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 专辑封面区域 -->
+        <div class="album-section">
+            <div class="album-cover-wrapper">
+                <img src="/placeholder.svg?height=300&width=300" alt="专辑封面" class="album-cover" id="albumCover">
+            </div>
+            <div class="song-info">
+                <h2 class="song-title" id="songTitle">未播放</h2>
+                <p class="artist-name" id="artistName">未知歌手</p>
+            </div>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content">
+            <!-- 歌词显示区域 -->
+            <div class="lyrics-section">
+                <h3 class="section-title">歌词</h3>
+                <div class="lyrics-container" id="lyricsContainer">
+                    <p class="no-lyrics">暂无歌词</p>
+                </div>
+            </div>
+
+            <!-- 播放列表区域 -->
+            <div class="playlist-section">
+                <div class="playlist-header">
+                    <h3 class="section-title">播放列表</h3>
+                    <button class="btn-favorites" id="btnFavorites">收藏夹</button>
+                </div>
+                <div class="playlist-container" id="playlistContainer">
+                    <!-- 播放列表将由JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 播放器控制面板（固定底部） -->
+        <div class="player-controls">
+            <div class="progress-section">
+                <span class="time-display" id="currentTime">0:00</span>
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-filled" id="progressFilled"></div>
+                        <div class="progress-thumb" id="progressThumb"></div>
+                    </div>
+                </div>
+                <span class="time-display" id="totalTime">0:00</span>
+            </div>
+
+            <div class="controls-section">
+                <button class="control-btn" id="btnPrevious" title="上一首">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                    </svg>
+                </button>
+                <button class="control-btn btn-play-pause" id="btnPlayPause" title="播放/暂停">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg class="pause-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 4h4v16H6zm8 0h4v16h-4z"/>
+                    </svg>
+                </button>
+                <button class="control-btn" id="btnNext" title="下一首">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 18h2V6h-2zm-11-7l8.5-6v12z"/>
+                    </svg>
+                </button>
+
+                <div class="volume-control">
+                    <svg class="volume-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                    </svg>
+                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 隐藏的音频元素 -->
+    <audio id="audioPlayer"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
